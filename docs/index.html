@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Making of Code de Vie · Team XRay</title>
+<style>
+@font-face{font-family:Mono;src:url(assets/DejaVuSansMono.ttf)}@font-face{font-family:Mono;font-weight:700;src:url(assets/DejaVuSansMono-Bold.ttf)}
+:root{--teal:#2fd3c4;--teal-d:#0b2b31;--peri:#8e9df0;--peri-l:#e9ecff;--ink:#0d1417;--paper:#f7f8fc;--mut:#5c6b78;--coral:#ff8a7a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--paper)}
+.mono,code,h1,h2,h3,nav a,.k{font-family:Mono,ui-monospace,monospace}
+nav{position:sticky;top:0;z-index:9;background:rgba(10,26,30,.93);backdrop-filter:blur(6px);display:flex;gap:.2rem;overflow-x:auto;padding:.45rem .8rem;border-bottom:2px solid var(--teal)}
+nav a{color:#cfeff0;text-decoration:none;font-size:.78rem;white-space:nowrap;padding:.3rem .55rem;border-radius:4px}nav a:hover{background:var(--teal);color:var(--ink)}
+header{position:relative;min-height:min(88vh,760px);display:flex;align-items:flex-end;color:#fff;background:#000 url(assets/img/hero.jpg) center/cover}
+header:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,43,49,.92),rgba(11,43,49,.35) 55%,rgba(142,157,240,.25))}
+header .in{position:relative;padding:8vh 6vw;max-width:900px}header h1{font-size:clamp(2.2rem,6vw,4.4rem);margin:.1em 0;color:var(--teal);letter-spacing:-.02em}
+header h1 span{color:var(--peri-l)}header p{font-size:1.15rem;max-width:40em}.cursor{animation:b 1s steps(1) infinite}@keyframes b{50%{opacity:0}}
+section{padding:4.5rem 6vw;max-width:1250px;margin:0 auto}section.dark{max-width:none;background:var(--teal-d);color:#e6f4f4}section.dark .w{max-width:1250px;margin:0 auto}
+section.peri{max-width:none;background:var(--peri-l)}section.peri .w{max-width:1250px;margin:0 auto}
+h2{font-size:clamp(1.5rem,3.2vw,2.2rem);margin:0 0 .3em;color:#147a72}section.dark h2{color:var(--teal)}h2 .n{color:var(--peri);margin-right:.4em}
+h3{font-size:1.05rem;margin:2rem 0 .4rem;color:#3f4fa8}section.dark h3{color:var(--peri)}
+.lead{font-size:1.15rem;max-width:52em;color:var(--mut)}section.dark .lead{color:#a9c9cc}
+.grid{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}.g2{grid-template-columns:repeat(auto-fit,minmax(380px,1fr))}
+figure{margin:0;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 14px rgba(13,20,23,.08)}section.dark figure{background:#08191c}
+figure img,figure video{display:block;width:100%;height:auto;background:#000}figure video{max-height:70vh;object-fit:contain}figcaption{padding:.6rem .85rem;font-size:.85rem;color:var(--mut)}section.dark figcaption{color:#9fbfc2}
+.card{background:#fff;border-left:4px solid var(--teal);padding:1rem 1.2rem;border-radius:6px;box-shadow:0 1px 8px rgba(0,0,0,.05)}section.dark .card{background:#0f363d;color:#e6f4f4}
+.card.p{border-color:var(--peri)}.card b{color:#147a72}section.dark .card b{color:var(--teal)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem;margin:1.5rem 0}.stat{background:#0f363d;border-radius:8px;padding:1rem}.stat .k{font-size:1.7rem;color:var(--teal);font-weight:700}.stat div{font-size:.85rem;color:#a9c9cc}
+ul.dec{padding-left:1.1rem}ul.dec li{margin:.35rem 0}
+.strip{display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem}.strip figure figcaption{font-family:Mono;font-size:.72rem;text-align:center}
+@media(max-width:700px){.strip{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:1fr}section{padding:3rem 5vw}}
+table{border-collapse:collapse;width:100%;font-size:.9rem}td,th{padding:.45rem .6rem;border-bottom:1px solid #dfe3ee;text-align:left;vertical-align:top}th{font-family:Mono;font-size:.78rem;color:#3f4fa8}td.t{font-family:Mono;white-space:nowrap;color:#147a72;font-size:.8rem}
+.tl{overflow-x:auto}.ba{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}@media(max-width:700px){.ba{grid-template-columns:1fr}}
+.tag{display:inline-block;font-family:Mono;font-size:.7rem;padding:.1rem .45rem;border-radius:3px;background:var(--teal);color:var(--ink);margin-right:.3rem}.tag.h{background:var(--peri);color:#fff}
+audio{width:100%}footer{background:#061215;color:#8fb3b6;text-align:center;padding:3rem 1rem;font-family:Mono}footer b{color:var(--teal);font-size:1.4rem}
+</style></head><body>
+<nav><a href="#top">▲ Code de Vie</a><a href="#film">Film</a><a href="#song">01 Song</a><a href="#pipeline">02 Pipeline</a><a href="#claudia">03 Claudia era</a><a href="#character">04 New character</a><a href="#jen">05 Jen v4</a><a href="#fixes">06 Notes &amp; fixes</a><a href="#fx">07 FX</a><a href="#ending">08 Ending</a><a href="#ba">09 Before / after</a><a href="#timeline">10 Timeline</a><a href="#credits">Credits</a></nav>
+
+<header id="top"><div class="in"><div class="mono" style="color:var(--peri-l)">// the making of</div>
+<h1>Code <span>de</span> Vie<span class="cursor">_</span></h1>
+<p>An AI music video made in nine days: from the first ComfyUI test shots with Claudia to an original character, Jen, an engineer who writes software for nurses and imagines herself as one.</p>
+<p class="mono" style="font-size:.85rem;color:#bfe">24 Oct – 2 Nov 2026 · 157.9 s song · 73 shots · Team XRay</p></div></header>
+
+<section id="film"><h2><span class="n">▶</span>The final cut</h2>
+<p class="lead">The finished film: 2:41.9, 1280×720, 24 fps. This page embeds a 540p web copy; the master is H.264 with 320 kbps AAC.</p>
+<figure><video controls preload="metadata" poster="assets/img/title_moment.jpg" src="assets/v/00_code_de_vie_final_540p.mp4"></video><figcaption>Code de Vie: final master, web copy.</figcaption></figure>
+<div class="stats" style="background:var(--teal-d);padding:1rem;border-radius:10px">
+<div class="stat"><span class="k">157.92 s</span><div>song length (master v3)</div></div><div class="stat"><span class="k">≈130 bpm</span><div>measured tempo, 129.9 (0.4617 s per beat)</div></div>
+<div class="stat"><span class="k">73</span><div>shots on the timeline</div></div><div class="stat"><span class="k">2</span><div>worlds: tech &amp; hospital</div></div>
+<div class="stat"><span class="k">1</span><div>RTX 4070 SUPER, 12 GB VRAM, 16 GB RAM</div></div><div class="stat"><span class="k">27</span><div>subtitle cues, one per sung line</div></div></div>
+</section>
+
+<section id="song" class="peri"><div class="w"><h2><span class="n">01</span>The song: “Code of Life” becomes “Code de Vie”</h2>
+<p class="lead">It started as an original English song about developers who build software for healthcare. It was produced in Suno, then turned into a French/English version, which became the film's soundtrack.</p>
+<div class="grid">
+<div class="card p"><b>Iterations.</b> The first lyrics file is dated 24 Oct, 12:09. Song takes followed the same day (“code-of-life” takes 1–3, then a v3 set), and a v4 set on 25 Oct. The French/English master <code>code-de-vie.wav</code> landed on 25 Oct at 11:56.</div>
+<div class="card p"><b>A spliced verse 2.</b> The v3 master takes a 30 s verse-2 passage (75.5–105.5 s) from another take. It is joined with a 35 ms crossfade and its loudness is matched, so the song never had to be regenerated.</div>
+<div class="card p"><b>The real tempo.</b> Beat tracking measured 129.9 bpm (0.4617 s per beat), not the nominal value. Bar downbeats sit on the section starts; chord changes land on that beat about twice as often as on the other beats. That grid later drives the cuts, the light leaks and the EKG.</div>
+<div class="card p"><b>Lyrics alignment.</b> A forced alignment gives word-level timings for all 27 lines. They feed the lip-sync audio windows, the subtitles and, at the very end, the timing of the “Code de Vie” title.</div>
+</div></div></section>
+
+<section id="pipeline" class="dark"><div class="w"><h2><span class="n">02</span>The pipeline</h2>
+<p class="lead">Everything was rendered locally on one consumer GPU, and all post work happened on a separate Linux box. The binding constraint turned out to be system RAM, not VRAM.</p>
+<div class="grid">
+<div class="card"><b>GPU box.</b> ComfyUI portable 0.42.1, PyTorch 2.14 + cu130, RTX 4070 SUPER 12 GB, 16 GB system RAM. The readiness check found no driver or ComfyUI update was needed. It also showed that RAM is the limit.</div>
+<div class="card"><b>Stills.</b> Qwen-Image-2.1 Turbo (int8) with a Qwen3-VL text encoder. Every shot starts from a generated first frame.</div>
+<div class="card"><b>Motion.</b> Wan 2.2 I2V A14B (Q4 GGUF, high- and low-noise experts) with the lightx2v 4-step LoRA, 81 frames at 16 fps and 832×480, then retimed to 24 fps with film grain.</div>
+<div class="card"><b>Lip sync.</b> ComfyUI's built-in InfiniteTalk on the Wan 480p base, driven by the separated vocal stem. Long lines later became one continuous take using native windowing (windows of at most 81 frames, 9 motion frames carried over).</div>
+<div class="card"><b>Post.</b> ffmpeg + Python/OpenCV on the box: cut builds, the vscode_comp screen compositor, YuNet face checks, rembg person mattes, subtitles (ASS), FX and audio.</div>
+<div class="card"><b>Considered, not used.</b> MiniMax H3 was ruled out: its licence excludes local use in the US/EU/UK/Korea and it needs at least 32 GB RAM. The Wan Animate pose-driven route was tested in pose/ but not adopted.</div>
+</div>
+<div class="grid g2" style="margin-top:1.5rem">
+<figure><video controls muted loop playsinline preload="metadata" src="assets/v/08a_shot65_raw.mp4"></video><figcaption>Raw Wan render: the monitors are deliberately kept plain and dark…</figcaption></figure>
+<figure><video controls muted loop playsinline preload="metadata" src="assets/v/08b_shot65_comp.mp4"></video><figcaption>…then vscode_comp warps real VS Code plates onto them in post, with a person matte so she stays in front.</figcaption></figure>
+</div></div></section>
+
+<section id="claudia"><h2><span class="n">03</span>The Claudia era</h2>
+<p class="lead">The first pass used <b>Claudia</b>, an open character by anabology. It established the story, the rules for the engineer, the screen compositing and the v3 full cut that set the bar.</p>
+<div class="grid">
+<figure><video controls muted loop playsinline preload="metadata" src="assets/v/01_claudia_first_clip.mp4"></video><figcaption><span class="tag">25 Oct 12:17</span>The first ComfyUI test clip (Wan 2.2 TI2V 5B).</figcaption></figure>
+<figure><video controls muted loop playsinline preload="metadata" src="assets/v/02_claudia_wan14b.mp4"></video><figcaption><span class="tag">25 Oct 18:24</span>Test shot 2: Wan 2.2 I2V 14B after the install check.</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/claudia_cu.jpg"><figcaption>Claudia reference close-up.</figcaption></figure>
+</div>
+<h3>// key decisions</h3>
+<ul class="dec">
+<li><b>A dual story.</b> An engineer at her monitors and a nurse at the bedside, cut together on the beat as two worlds.</li>
+<li><b>Engineer rules.</b> She always looks at her screen, never the lens. No rain on the glass. Her monitors are rendered blank, and real VS Code screens are composited in post.</li>
+<li><b>Thin dark glasses for the engineer only.</b> They separate the two roles at a glance. The nurse never wears them.</li>
+<li><b>Reworking the intro.</b> Seven intro rough cuts (25 Oct 19:23 → 22:53). Among other changes, an intro shot was replaced by a hand-on-mouse shot.</li>
+<li><b>The v3 full cut.</b> All 73 shots are real clips with lip sync, VS Code composites, HUD cards and English subtitles. Built 26 Oct 14:54, and loved by the director.</li>
+</ul>
+<div class="grid g2">
+<figure><video controls preload="metadata" src="assets/v/03_intro_roughcut_v7.mp4"></video><figcaption>intro_roughcut_v7: the Claudia intro as it was locked.</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/v3_contact.jpg"><figcaption>Contact sheet of the v3 full cut (73 shots).</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/claudia_glasses.jpg"><figcaption>The engineer-glasses reference (25 Oct 21:51).</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/vscode_sheet.jpg"><figcaption>VS Code composites on the v2 shots.</figcaption></figure>
+</div></section>
+
+<section id="character" class="peri"><div class="w"><h2><span class="n">04</span>An original character: Jen</h2>
+<p class="lead">To own the film outright, the team designed an original lead. The face went through text-only iterations. The director's reference photos were used only as written direction, never as an image or likeness input.</p>
+<div class="strip">
+<figure><img loading="lazy" src="assets/img/fs0.jpg"><figcaption>Claudia</figcaption></figure><figure><img loading="lazy" src="assets/img/fs1.jpg"><figcaption>face v2</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/fs2.jpg"><figcaption>face v3 · ponytail</figcaption></figure><figure><img loading="lazy" src="assets/img/fs3.jpg"><figcaption>face v4 · “Jen”</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/fs4.jpg"><figcaption>v5 · approved</figcaption></figure><figure><img loading="lazy" src="assets/img/fs5.jpg"><figcaption>v5 walnut · canon</figcaption></figure></div>
+<div class="grid" style="margin-top:1.4rem">
+<div class="card p"><b>Canon (locked 28 Oct, 23:29).</b> An adult woman in her mid-20s with a walnut-brown high ponytail, fair skin, light blue-grey eyes, a softly rounded face and minimal makeup.</div>
+<div class="card p"><b>Safety by design.</b> She always clearly reads as an adult and is never sexualised. Takes that read under about 22 are rejected. The reference sheet outfit is a plain white tank top and leggings, and the canon avoids glossy lips, doll or anime proportions, and suggestive poses.</div>
+<div class="card p"><b>Two roles.</b> The engineer wears a grey hoodie and thin dark glasses, with her eyes on the screen. The nurse wears periwinkle scrubs (changed from teal on 30 Oct), no glasses, in a bright daylight hospital.</div>
+</div>
+<div class="grid g2" style="margin-top:1.2rem">
+<figure><img loading="lazy" src="assets/img/jen_sheet_face.jpg"><figcaption>Character sheet: faces (v5 walnut).</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/jen_sheet_body.jpg"><figcaption>Character sheet: body.</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/jen_moves.jpg"><figcaption>The 6 moves: idle, bounce, walk, turn 360, spin, dance.</figcaption></figure>
+<figure><video controls muted loop playsinline preload="metadata" src="assets/v/06_pose_test.mp4"></video><figcaption>A pose-driven animation test (Wan Animate 2). It was not adopted.</figcaption></figure>
+</div></div></section>
+
+<section id="jen" class="dark"><div class="w"><h2><span class="n">05</span>Jen v4: the engineer who imagines herself as a nurse</h2>
+<p class="lead">The story was reframed: Jen writes software for nurses and imagines herself in their shoes. The director's 30 Oct shot notes set the tone: bright, cheerful, periwinkle scrubs, and no dancing, only bobbing and tapping to the beat. Shot 18 is the single moment she looks into the camera.</p>
+<div class="grid">
+<figure><video controls preload="metadata" src="assets/v/07_jen_intro_sectionA.mp4"></video><figcaption>Section A opening: the Jen intro.</figcaption></figure>
+<figure><video controls muted loop playsinline preload="metadata" src="assets/v/09_shot18_lipsync.mp4"></video><figcaption>Shot 18: the one look at the lens (one continuous InfiniteTalk take).</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/clinical_ui.jpg"><figcaption>A clinical UI plate (fictional data) composited onto the cart screen in shot 36.</figcaption></figure>
+</div>
+<h3>// rendered in three approved sections</h3>
+<div class="grid">
+<figure><img loading="lazy" src="assets/img/secA.jpg"><figcaption><span class="tag">A · shots 1–21</span>built 30 Oct 17:02, approved.</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/secB.jpg"><figcaption><span class="tag">B · shots 22–46</span>built 31 Oct 00:11, approved.</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/secC.jpg"><figcaption><span class="tag">C · shots 47–73</span>built 31 Oct 04:49, then assembled into full v4.</figcaption></figure>
+</div></div></section>
+
+<section id="fixes"><h2><span class="n">06</span>Notes &amp; fix rounds</h2>
+<p class="lead">The director reviewed every cut and sent shot-by-shot notes. Each round was batched and kept frugal: one take per fix, a retry only when something was clearly broken, and short consolidated reports.</p>
+<div class="grid">
+<div class="card"><b>Realistic skin.</b> Prompts added visible pores and slight unevenness, and the negatives added “plastic skin, airbrushed, waxy”.</div>
+<div class="card"><b>Keyed-out bodies.</b> In shots 11 and 65 the screen composite showed through her hood. A person-segmentation matte (rembg) now holds her in front of the screens.</div>
+<div class="card"><b>Lip-sync seams.</b> Shots 9, 18 and 31 had visible joins. They were re-rendered as single continuous InfiniteTalk takes, and frame-difference checks found no jumps.</div>
+<div class="card"><b>Casting the nurses.</b> Crowd shots shouldn't all be Jen. Shot 49 went through two fixes and ended with one nurse Jen and one different nurse.</div>
+<div class="card"><b>Subtitles on every line.</b> First French lines only, then English on the English-sung lines too: 27 cues, kept off faces by automatic face checks.</div>
+<div class="card"><b>Honest reporting.</b> Each fix is listed, and flaws are flagged rather than hidden.</div>
+</div>
+<div class="grid g2" style="margin-top:1.2rem"><figure><img loading="lazy" src="assets/img/fixes_contact.jpg"><figcaption>Fix-round contact sheet (1 Nov).</figcaption></figure><figure><img loading="lazy" src="assets/img/v41_fixes.jpg"><figcaption>The 20 fixed shots in context in v4.1.</figcaption></figure></div>
+</section>
+
+<section id="fx" class="peri"><div class="w"><h2><span class="n">07</span>FX: two worlds, one pulse</h2>
+<p class="lead">A post-only look pass (<code>fx/apply_fx.py</code> + <code>config.json</code>) was tested on 20–25 s excerpts before any full run.</p>
+<ul class="dec">
+<li><span class="tag">tech</span>Cool teal/blue grade, a slight chromatic fringe at the edges, faint scanlines and monitor glow, and code drifting at the frame edges.</li>
+<li><span class="tag h">hospital</span>Warm sunny grade with bloom and halation, small vitals and checkmark callouts, and whites and blacks protected so it doesn't go milky.</li>
+<li><b>Glitch cut back.</b> v1 glitched every world switch. The director found it distracting, so it now fires only at 5 key crossings. A person matte keeps the glitch blocks off Jen.</li>
+<li><b>Grain removed.</b> The 16 mm grain read as noise, so it was dropped.</li>
+<li><b>An EKG pulse.</b> A bright white line with a dark shadow, locked to the real ~130 bpm grid, with a much taller spike on beat 1 of every bar.</li>
+<li><b>“Code de Vie” title.</b> Typed in DejaVu Sans Mono with a blinking cursor at every sung “Code de vie” (6 moments). A JavaScript DNA-helix code stream falls behind it, ending in a glitch-tear on the title only.</li>
+</ul>
+<div class="grid g2">
+<figure><video controls preload="metadata" src="assets/v/11_fx_test_v1.mp4"></video><figcaption><span class="tag">fx v1</span>a glitch at every switch.</figcaption></figure>
+<figure><video controls preload="metadata" src="assets/v/12_fx_test_v2.mp4"></video><figcaption><span class="tag">fx v2</span>one glitch, a subtitle shadow, a cleaner hospital look.</figcaption></figure>
+<figure><video controls preload="metadata" src="assets/v/13_fx_test_v3.mp4"></video><figcaption><span class="tag">fx v3</span>the EKG and title + helix arrive.</figcaption></figure>
+<figure><video controls preload="metadata" src="assets/v/14_fx_test_v4.mp4"></video><figcaption><span class="tag">fx v4</span>a white EKG with big downbeats, no grain, a JS helix.</figcaption></figure>
+</div>
+<div class="grid" style="margin-top:1.2rem"><figure><img loading="lazy" src="assets/img/fx1c.jpg"><figcaption>v1 contact: v4.3 above, FX below.</figcaption></figure><figure><img loading="lazy" src="assets/img/fx4c.jpg"><figcaption>v4 contact.</figcaption></figure><figure><img loading="lazy" src="assets/img/v45_contact.jpg"><figcaption>Full run v4.5: EKG and title moments.</figcaption></figure></div>
+</div></section>
+
+<section id="ending" class="dark"><div class="w"><h2><span class="n">08</span>The ending: letting “Code de vie” breathe</h2>
+<p class="lead">The last sung “Code de vie” was cut off abruptly in the generated song. Rather than going back to Suno, a reverb was applied to the separated vocal stem only. The voice blooms and decays to silence over about 2.5 s with no click. The picture holds the last frame and fades to black under a Team XRay credit.</p>
+<div class="grid g2">
+<div class="card"><b>Before</b>: the last 14 s of v4.5.<audio controls preload="metadata" src="assets/audio/ending_before.m4a"></audio></div>
+<div class="card"><b>After</b>: with the reverb tail (+2.49 s).<audio controls preload="metadata" src="assets/audio/ending_after.m4a"></audio></div>
+</div>
+<figure style="margin-top:1.2rem"><img loading="lazy" src="assets/img/final_last6.jpg"><figcaption>The last 6 s of the final master: hold, fade and credit.</figcaption></figure>
+</div></section>
+
+<section id="ba"><h2><span class="n">09</span>Before / after: Claudia v3 → Jen final</h2>
+<p class="lead">The same chorus moment (0:51.6–1:06.4), from the v3 cut and from the final.</p>
+<div class="ba"><figure><video controls preload="metadata" src="assets/v/04_v3_chorus.mp4"></video><figcaption>v3 (Claudia), 26 Oct.</figcaption></figure><figure><video controls preload="metadata" src="assets/v/05_final_chorus.mp4"></video><figcaption>Final (Jen), 2 Nov.</figcaption></figure></div>
+<div class="ba" style="margin-top:.8rem">
+<figure><img loading="lazy" src="assets/img/v3_20.jpg"><figcaption>v3 · 0:20</figcaption></figure><figure><img loading="lazy" src="assets/img/fin_20.jpg"><figcaption>final · 0:20</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/v3_55.jpg"><figcaption>v3 · 0:55</figcaption></figure><figure><img loading="lazy" src="assets/img/fin_55.jpg"><figcaption>final · 0:55</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/v3_120.jpg"><figcaption>v3 · 2:00</figcaption></figure><figure><img loading="lazy" src="assets/img/fin_120.jpg"><figcaption>final · 2:00</figcaption></figure></div>
+</section>
+
+<section id="timeline" class="peri"><div class="w"><h2><span class="n">10</span>Timeline</h2><p class="lead">From file modification times (US Eastern) of the project artifacts.</p>
+<div class="tl"><table><tr><th>when</th><th>milestone</th></tr>
+<tr><td class="t">24 Oct 12:09</td><td>First lyrics file</td></tr>
+<tr><td class="t">24 Oct 17:31</td><td>First song takes (“code-of-life” 1–3); v3 takes at 17:51</td></tr>
+<tr><td class="t">25 Oct 09:45</td><td>v4 song takes</td></tr>
+<tr><td class="t">25 Oct 11:56</td><td>French/English master <code>code-de-vie.wav</code></td></tr>
+<tr><td class="t">25 Oct 12:03</td><td>Claudia reference pack</td></tr>
+<tr><td class="t">25 Oct 12:17</td><td>First ComfyUI test shot with Claudia</td></tr>
+<tr><td class="t">25 Oct 18:24</td><td>Install check and test shot 2 (Wan 2.2 I2V 14B)</td></tr>
+<tr><td class="t">25 Oct 19:01</td><td>Song master v3 (verse-2 splice)</td></tr>
+<tr><td class="t">25 Oct 19:23–22:53</td><td>Intro rough cuts v1 → v7; glasses and VS Code compositing</td></tr>
+<tr><td class="t">25 Oct 23:11</td><td>InfiniteTalk lip-sync route documented</td></tr>
+<tr><td class="t">25 Oct 23:26</td><td>Full cut v1; v2 at 23:42</td></tr>
+<tr><td class="t">26 Oct 14:54</td><td>Full cut v3: 73 shots, lip sync, subtitles</td></tr>
+<tr><td class="t">26 Oct 20:57–21:24</td><td>Original face v2, v3, v4 (“Jen”)</td></tr>
+<tr><td class="t">28 Oct 23:19–23:48</td><td>Face v5 approved, walnut hair, canon locked, character sheets</td></tr>
+<tr><td class="t">28 Oct 23:52 – 29 Oct 01:00</td><td>Pose-driven animation feasibility and tests</td></tr>
+<tr><td class="t">29 Oct 02:02</td><td>Jen intro re-render (shots 1–8)</td></tr>
+<tr><td class="t">30 Oct 15:46</td><td>Jen v4 shot notes</td></tr>
+<tr><td class="t">30 Oct 17:02</td><td>Section A (shots 1–21)</td></tr>
+<tr><td class="t">31 Oct 00:11</td><td>Section B (shots 22–46)</td></tr>
+<tr><td class="t">31 Oct 04:49–04:51</td><td>Section C and full v4</td></tr>
+<tr><td class="t">1 Nov 19:24</td><td>Notes on the full v4</td></tr>
+<tr><td class="t">1 Nov 20:53–22:04</td><td>v4.1 (fixes), v4.2 (all-line subtitles), v4.3 (shot 49)</td></tr>
+<tr><td class="t">1 Nov 22:14–22:24</td><td>FX tests v1, v2</td></tr>
+<tr><td class="t">1 Nov 23:07</td><td>v4.4 FX full run</td></tr>
+<tr><td class="t">2 Nov 00:14–07:26</td><td>FX tests v3 (EKG, title), v4</td></tr>
+<tr><td class="t">2 Nov 08:07</td><td>v4.5 FX full run</td></tr>
+<tr><td class="t">2 Nov 08:27</td><td>Reverb tail for the ending</td></tr>
+<tr><td class="t">2 Nov 08:31</td><td><b>Final master</b></td></tr>
+</table></div></div></section>
+
+<footer id="credits"><div>// credits</div><b>Code de Vie</b><p>Team XRay</p><p style="font-size:.75rem">Claudia is an open character by anabology (claudia.gallery). Jen is an original character. Made with Suno, Qwen-Image, Wan 2.2, InfiniteTalk and ComfyUI.</p></footer>
+</body></html>
