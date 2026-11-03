@@ -157,6 +157,22 @@ audio{width:100%}footer{background:#061215;color:#8fb3b6;text-align:center;paddi
 <div class="grid" style="margin-top:1.2rem"><figure><img loading="lazy" src="assets/img/fx1c.jpg"><figcaption>v1 contact: v4.3 above, FX below.</figcaption></figure><figure><img loading="lazy" src="assets/img/fx4c.jpg"><figcaption>v4 contact.</figcaption></figure><figure><img loading="lazy" src="assets/img/v45_contact.jpg"><figcaption>Full run v4.5: EKG and title moments.</figcaption></figure></div>
 </div></section>
 
+<section id="fx2"><h2><span class="n">07b</span>FX round 2: distress, a future hospital and holograms (v5 → v6)</h2>
+<p class="lead">A second look pass split the two worlds further. Every idea was first tested on a 15–20 s excerpt with a contact sheet, then rolled across the film in three sections and finally rendered in one pass.</p>
+<ul class="dec">
+<li><span class="tag">coder</span><b>Tech distress.</b> Modeled on a reference clip: clean footage, with the damage living in the screens. The tracked monitor and VS Code regions get scanlines, jitter and slipping bands. Hard hits of slice-tearing, RGB split and macroblocks are locked to the beat grid (big on beat 1 of every bar, smaller on beats 3 and 4). Red “✗ tests failed” flashes tint a single screen. v1 was sparing, v2 went loud “right off the bat”, and v6 backs it off about 25%: fewer small hits and flashes and gentler tears, with every bar-1 hit kept. A person matte keeps the damage off Jen, apart from one-frame full-frame flashes.</li>
+<li><span class="tag h">nurse</span><b>Futuristic hyper-real grade.</b> A 60s Kodachrome look and a futuristic look were compared side by side, and the futuristic one won: cool, clean whites, a slight teal cast in the shadows, midtone clarity, gentle sharpening (eased to avoid halos), a soft highlight glow and a dreamy bloom on the windows. An “angelic” halo glows around Jen's silhouette, never over her face. No grain.</li>
+<li><b>Hologram meshes.</b> Sparse wireframes with fine 1 px glowing lines appear on distinct shapes only: the hallway, the ward beds, a vitals monitor and a patient's blanket (dark-teal lines over a slight darkening so they read on white). They fade in on bar-1 downbeats with a scan line sweeping through. Jen gets an occasional light whole-body wireframe built from her silhouette outline plus a dozen pose joints. A dense face-scan mesh with glowing eyes was tried and rejected because it hid her face.</li>
+<li><b>How it's built.</b> Python with NumPy and OpenCV does every frame; ffmpeg handles decoding, encoding, subtitles and the audio mux. rembg (u2net human segmentation) gives the person mattes, a YuNet detector keeps effects off faces, and mediapipe provides the face and pose landmarks. Tracked screen corners from the VS Code composites place the screen effects, and a beat grid (about 129.9 bpm, bar phase verified on the chords and snare) times every hit, flash and mesh.</li>
+</ul>
+<div class="grid g2" style="margin-top:1.2rem">
+<figure><img loading="lazy" src="assets/img/distress_v2.jpg"><figcaption><span class="tag">coder</span>distress test v2: screen jitter, beat-locked tears, red flashes.</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/grade_compare.jpg"><figcaption><span class="tag h">nurse</span>Original · 60s Kodachrome · Futuristic (chosen).</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/mesh_v3.jpg"><figcaption>Mesh test v3: the hallway hologram and Jen's sparse body wireframe.</figcaption></figure>
+<figure><img loading="lazy" src="assets/img/v6_contact.jpg"><figcaption>Full v6 contact sheet.</figcaption></figure>
+</div>
+</section>
+
 <section id="ending" class="dark"><div class="w"><h2><span class="n">08</span>The ending: letting “Code de vie” breathe</h2>
 <p class="lead">The last sung “Code de vie” was cut off abruptly in the generated song. Rather than going back to Suno, a reverb was applied to the separated vocal stem only. The voice blooms and decays to silence over about 2.5 s with no click. The picture holds the last frame and fades to black under a Team XRay credit.</p>
 <div class="grid g2">
