@@ -83,7 +83,7 @@ Setup: Homebrew ffmpeg, Python 3.11 venv, `./setup.sh` (~1–2 min + rembg weigh
 **Full v6** (`./run.sh v6`):
 - Runtime: ~39 min wall for the FX body on M4, plus ~30 s to append the credit tail
 - Output: 161.917 s, **3886** frames, audio from FINAL (matches box ref / FINAL exactly on duration and frame count)
-- Spot PSNR/SSIM vs box ref across the film: see the latest compare notes in `$CDV_DATA/out/`
+- Spot check vs box ref (every ~10 s + credit frames): PSNR mean **35.1 dB** (min 24.5), SSIM mean **0.989** (min 0.956)
 - Artifact: `$CDV_DATA/out/code_de_vie_v6.mp4`
 
 ## Gaps / not in this kit
