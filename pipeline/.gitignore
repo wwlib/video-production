@@ -1,7 +1,9 @@
-.venv/
-__pycache__/
+!models/README.md
 *.pyc
 .DS_Store
+.venv/
+__pycache__/
 models/*
-!models/README.md
+node_modules/
 out/
+tools/vscomp/debug/

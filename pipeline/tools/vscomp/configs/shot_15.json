@@ -1,0 +1,169 @@
+{
+ "shot": 15,
+ "notes": "Lip-sync MCU; foreground slab left, one background monitor next to her hair, two small ones right. Camera drifts: KLT translation.",
+ "ref_frame": 0,
+ "monitors": [
+  {
+   "name": "slab",
+   "quad": [
+    [
+     -60,
+     100
+    ],
+    [
+     195,
+     100
+    ],
+    [
+     200,
+     500
+    ],
+    [
+     -60,
+     500
+    ]
+   ],
+   "plate": "anim-02-typing-medCheck-ai-ghost-sideeye.mp4",
+   "plate_offset": 40,
+   "track": {
+    "mode": "klt",
+    "model": "translation",
+    "grow": 16,
+    "smooth": 3
+   },
+   "look": {
+    "lift": 0.28,
+    "soften": 2.2,
+    "glow": 0.15,
+    "grow": 2.0,
+    "tint": 0.35
+   }
+  },
+  {
+   "name": "B",
+   "quad": [
+    [
+     212,
+     138
+    ],
+    [
+     330,
+     138
+    ],
+    [
+     330,
+     233
+    ],
+    [
+     212,
+     233
+    ]
+   ],
+   "plate": "screen-06-split-terminal-tests-pass.png",
+   "plate_offset": 0,
+   "track": {
+    "mode": "klt",
+    "model": "translation",
+    "grow": 16,
+    "smooth": 3
+   },
+   "look": {
+    "lift": 0.22,
+    "soften": 1.4,
+    "glow": 0.15,
+    "grow": 1.5
+   },
+   "occlusion": {
+    "keys": [
+     {
+      "mode": "chroma",
+      "thr": 16
+     },
+     {
+      "mode": "luma_below",
+      "thr": 35
+     }
+    ],
+    "min_area": 30,
+    "dilate": 5,
+    "feather": 1.2
+   }
+  },
+  {
+   "name": "R1",
+   "quad": [
+    [
+     695,
+     173
+    ],
+    [
+     790,
+     173
+    ],
+    [
+     790,
+     243
+    ],
+    [
+     695,
+     243
+    ]
+   ],
+   "plate": "screen-04-privacy.png",
+   "plate_offset": 0,
+   "track": {
+    "mode": "klt",
+    "model": "translation",
+    "grow": 16,
+    "smooth": 3
+   },
+   "look": {
+    "lift": 0.22,
+    "soften": 1.4,
+    "glow": 0.15,
+    "grow": 1.5
+   }
+  },
+  {
+   "name": "R2",
+   "quad": [
+    [
+     693,
+     252
+    ],
+    [
+     767,
+     252
+    ],
+    [
+     767,
+     300
+    ],
+    [
+     693,
+     300
+    ]
+   ],
+   "plate": "screen-01-transcribe.png",
+   "plate_offset": 0,
+   "track": {
+    "mode": "klt",
+    "model": "translation",
+    "grow": 16,
+    "smooth": 3
+   },
+   "look": {
+    "lift": 0.22,
+    "soften": 1.4,
+    "glow": 0.15,
+    "grow": 1.5
+   }
+  }
+ ],
+ "source": {
+  "path": "/workspace/poc/jen_v4/shot_15/shot_15_clip_24fps_grain.mp4",
+  "size": 1479381,
+  "mtime": "2026-10-30 16:50:30",
+  "md5": "574d246fa302"
+ }
+}

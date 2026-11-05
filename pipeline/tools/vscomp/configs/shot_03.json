@@ -1,0 +1,68 @@
+{
+ "shot": 3,
+ "notes": "CU, camera drifts/pushes (~40 px over the shot): KLT translation on the left monitor band. Her hoodie/hair near the right edge held out (chroma + luma_above).",
+ "ref_frame": 0,
+ "monitors": [
+  {
+   "name": "left",
+   "quad": [
+    [
+     -60,
+     228
+    ],
+    [
+     185,
+     212
+    ],
+    [
+     250,
+     500
+    ],
+    [
+     -60,
+     500
+    ]
+   ],
+   "plate": "screen-07-ai-ghost-text-sideeye.png",
+   "plate_offset": 0,
+   "track": {
+    "mode": "klt",
+    "model": "similarity",
+    "grow": 16,
+    "smooth": 3
+   },
+   "look": {
+    "lift": 0.28,
+    "soften": 2.2,
+    "glow": 0.15,
+    "grow": 2.0,
+    "tint": 0.35
+   },
+   "occlusion": {
+    "keys": [
+     {
+      "mode": "chroma",
+      "thr": 16
+     },
+     {
+      "mode": "luma_below",
+      "thr": 25
+     },
+     {
+      "mode": "luma_above",
+      "thr": 150
+     }
+    ],
+    "min_area": 30,
+    "dilate": 5,
+    "feather": 1.2
+   }
+  }
+ ],
+ "source": {
+  "path": "/workspace/poc/jen_v4/shot_03/shot_03_clip_24fps_grain.mp4",
+  "size": 1450692,
+  "mtime": "2026-10-30 16:50:25",
+  "md5": "cdde0c866275"
+ }
+}

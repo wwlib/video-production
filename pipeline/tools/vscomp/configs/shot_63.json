@@ -1,0 +1,57 @@
+{
+ "shot": 63,
+ "notes": "Engineer closes laptop; slab monitor left, arm below.",
+ "ref_frame": 0,
+ "monitors": [
+  {
+   "name": "slab",
+   "quad": [
+    [
+     -60,
+     72
+    ],
+    [
+     122,
+     60
+    ],
+    [
+     160,
+     332
+    ],
+    [
+     -60,
+     345
+    ]
+   ],
+   "plate": "screen-04-privacy.png",
+   "plate_offset": 0,
+   "track": {
+    "mode": "klt",
+    "model": "translation",
+    "grow": 16,
+    "smooth": 3
+   },
+   "look": {
+    "lift": 0.22,
+    "soften": 2.0,
+    "glow": 0.15,
+    "grow": 1.5,
+    "tint": 0.3
+   },
+   "occlusion": {
+    "keys": [
+     {
+      "mode": "chroma",
+      "thr": 30
+     }
+    ]
+   }
+  }
+ ],
+ "source": {
+  "path": "/workspace/poc/jen_v4/shot_63/shot_63_clip_24fps_grain.mp4",
+  "size": 835167,
+  "mtime": "2026-10-31 04:42:33",
+  "md5": "6e6a2cf5afda"
+ }
+}

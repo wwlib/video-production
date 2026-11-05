@@ -92,3 +92,40 @@ Setup: Homebrew ffmpeg, Python 3.11 venv, `./setup.sh` (~1–2 min + rembg weigh
 - Upstream conform / VS Code compositing / lip-sync assembly that produced `video_v4_3.mp4` are not re-run here; feed that clean cut as input.
 - Making-of HTML lives in `docs/` of this repo (already published); this kit does not rebuild the site.
 - RNG-based distress tears will not bit-match the box render frame-for-frame; use PSNR/SSIM, not pixel equality.
+
+
+## End-to-end flow (no AI tokens on the Mac)
+
+Human edits `shots.yaml`, then:
+
+```bash
+npm run generate:dry   # write orchestrator manifest; no GPU
+npm run generate       # calls ~/github/comfyui-studio `npm run orchestrate` (ai-lb lease per shot)
+npm run conform        # 24 fps, 1280×720, exact frame counts
+npm run vscode         # VS Code screen composites for tracked coder shots
+./scripts/assemble.sh shot_02,shot_04 ~/video-data/code-de-vie/assembled/cut.mp4
+npm run final          # existing v6 FX + credit tail on the clean full cut
+```
+
+`npm run all:dry` prints the plan. `npm run all` runs generate → conform → vscode.
+
+### Shot list
+
+`shots.yaml` documents all 63 Code de Vie shots from the real v4/v6 plans: world, start/end, frames, lipsync, screen plate/track, mask, character ref, still/video prompts, workflow (Wan 2.2 I2V vs InfiniteTalk).
+
+### Generation
+
+Adapter: `scripts/generate.mjs` → ComfyUI Studio orchestrator (do not commit inside that repo). Uses the same Wan 2.2 + InfiniteTalk workflow templates. One ai-lb lease per shot (30 min default; renew is heartbeat only and does **not** extend TTL). Resumable via `$CDV_DATA/gen/<id>/<id>.mp4`.
+
+### What still needs human judgment
+
+- Choosing which take/seed wins
+- Creative notes and prompt edits in `shots.yaml`
+- Approving stills before I2V / InfiniteTalk
+- When to force-regenerate vs keep the cache
+
+### E2E smoke (2026-11-05)
+
+- Conform + VS Code composite + assemble for `shot_02` (coder/screens) and `shot_04` (nurse) using cached/native clips: OK
+- Contact sheet: `$CDV_DATA/assembled/e2e_test_contact.jpg`
+- Live GPU generate for shot_02: attempted via orchestrator (lease acquired); see gaps if the lease drops mid-render

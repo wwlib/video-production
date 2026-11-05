@@ -1,0 +1,97 @@
+{
+ "shot": 5,
+ "notes": "Two plain monitors along the top, static; same framing as the intro shot 5. Hand stays below. | v4.1: occlusion = rembg u2net_human_seg person matte only (old luma/chroma keys removed).",
+ "ref_frame": 0,
+ "monitors": [
+  {
+   "name": "left",
+   "quad": [
+    [
+     -60,
+     -120
+    ],
+    [
+     432,
+     -120
+    ],
+    [
+     432,
+     147
+    ],
+    [
+     -60,
+     146
+    ]
+   ],
+   "plate": "screen-02-noteBuilder.png",
+   "plate_offset": 0,
+   "track": {
+    "mode": "static"
+   },
+   "look": {
+    "lift": 0.25,
+    "soften": 1.1,
+    "glow": 0.16,
+    "exposure": 1.4
+   },
+   "occlusion": {
+    "matte": "/workspace/poc/jen_v4/vscode/mattes/m05.mp4",
+    "matte_only": true,
+    "matte_thr": 0.35,
+    "matte_dilate": 5,
+    "feather": 1.0
+   }
+  },
+  {
+   "name": "right",
+   "quad": [
+    [
+     455,
+     -60
+    ],
+    [
+     635,
+     -60
+    ],
+    [
+     635,
+     153
+    ],
+    [
+     455,
+     154
+    ]
+   ],
+   "plate": "screen-06-split-terminal-tests-pass.png",
+   "plate_offset": 0,
+   "track": {
+    "mode": "static"
+   },
+   "look": {
+    "lift": 0.25,
+    "soften": 1.1,
+    "glow": 0.16,
+    "exposure": 1.4
+   },
+   "src_rect": [
+    330,
+    0,
+    1280,
+    1080
+   ],
+   "occlusion": {
+    "matte": "/workspace/poc/jen_v4/vscode/mattes/m05.mp4",
+    "matte_only": true,
+    "matte_thr": 0.35,
+    "matte_dilate": 5,
+    "feather": 1.0
+   }
+  }
+ ],
+ "source": {
+  "path": "/workspace/poc/jen_v4/shot_05/shot_05_fix1_clip_24fps_grain.mp4",
+  "size": 1560344,
+  "mtime": "2026-11-01 20:43:15",
+  "md5": "23c8daa13ed5"
+ }
+}

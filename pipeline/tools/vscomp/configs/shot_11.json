@@ -1,0 +1,130 @@
+{
+ "shot": 11,
+ "notes": "Wide from behind: three plain background monitors, static. Her hair (chroma) and the light hoodie (luma_above) held out. | v4.1: occlusion = rembg u2net_human_seg person matte only (old luma/chroma keys removed).",
+ "ref_frame": 0,
+ "monitors": [
+  {
+   "name": "L",
+   "quad": [
+    [
+     189,
+     191
+    ],
+    [
+     336,
+     191
+    ],
+    [
+     336,
+     280
+    ],
+    [
+     189,
+     280
+    ]
+   ],
+   "plate": "screen-01-transcribe.png",
+   "plate_offset": 0,
+   "track": {
+    "mode": "static"
+   },
+   "look": {
+    "lift": 0.22,
+    "soften": 1.4,
+    "glow": 0.15,
+    "grow": 1.5
+   },
+   "occlusion": {
+    "matte": "/workspace/poc/jen_v4/vscode/mattes/m11.mp4",
+    "matte_only": true,
+    "matte_thr": 0.35,
+    "matte_dilate": 5,
+    "feather": 1.0
+   }
+  },
+  {
+   "name": "M",
+   "quad": [
+    [
+     342,
+     191
+    ],
+    [
+     497,
+     191
+    ],
+    [
+     497,
+     279
+    ],
+    [
+     342,
+     279
+    ]
+   ],
+   "plate": "anim-04-terminal-tests-go-green.mp4",
+   "plate_offset": 0,
+   "track": {
+    "mode": "static"
+   },
+   "look": {
+    "lift": 0.22,
+    "soften": 1.4,
+    "glow": 0.15,
+    "grow": 1.5
+   },
+   "occlusion": {
+    "matte": "/workspace/poc/jen_v4/vscode/mattes/m11.mp4",
+    "matte_only": true,
+    "matte_thr": 0.35,
+    "matte_dilate": 5,
+    "feather": 1.0
+   }
+  },
+  {
+   "name": "R",
+   "quad": [
+    [
+     507,
+     191
+    ],
+    [
+     647,
+     191
+    ],
+    [
+     647,
+     280
+    ],
+    [
+     507,
+     280
+    ]
+   ],
+   "plate": "screen-05-pipeline-test.png",
+   "plate_offset": 0,
+   "track": {
+    "mode": "static"
+   },
+   "look": {
+    "lift": 0.22,
+    "soften": 1.4,
+    "glow": 0.15,
+    "grow": 1.5
+   },
+   "occlusion": {
+    "matte": "/workspace/poc/jen_v4/vscode/mattes/m11.mp4",
+    "matte_only": true,
+    "matte_thr": 0.35,
+    "matte_dilate": 5,
+    "feather": 1.0
+   }
+  }
+ ],
+ "source": {
+  "path": "/workspace/poc/jen_v4/shot_11/shot_11_clip_24fps_grain.mp4",
+  "size": 1416342,
+  "mtime": "2026-10-30 16:50:28",
+  "md5": "0f88a3853993"
+ }
+}

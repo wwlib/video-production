@@ -1,0 +1,53 @@
+{
+ "shot": 9,
+ "notes": "Lip-sync MCU; foreground slab monitor at the left edge, static. | v4.1: occlusion = rembg u2net_human_seg person matte only (old luma/chroma keys removed).",
+ "ref_frame": 0,
+ "monitors": [
+  {
+   "name": "slab",
+   "quad": [
+    [
+     -150,
+     75
+    ],
+    [
+     125,
+     57
+    ],
+    [
+     188,
+     500
+    ],
+    [
+     -150,
+     500
+    ]
+   ],
+   "plate": "anim-01-typing-noteBuilder-french-comment.mp4",
+   "plate_offset": 20,
+   "track": {
+    "mode": "static"
+   },
+   "look": {
+    "lift": 0.28,
+    "soften": 2.2,
+    "glow": 0.15,
+    "grow": 2.0,
+    "tint": 0.35
+   },
+   "occlusion": {
+    "matte": "/workspace/poc/jen_v4/vscode/mattes/m09.mp4",
+    "matte_only": true,
+    "matte_thr": 0.35,
+    "matte_dilate": 5,
+    "feather": 1.0
+   }
+  }
+ ],
+ "source": {
+  "path": "/workspace/poc/jen_v4/shot_09/shot_09_fix1_clip_24fps_grain.mp4",
+  "size": 3279285,
+  "mtime": "2026-11-01 20:43:15",
+  "md5": "c6e84ae42d74"
+ }
+}

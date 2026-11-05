@@ -1,0 +1,49 @@
+{
+ "shot": 56,
+ "notes": "Lip MCU; foreground slab monitor at left edge (angled).",
+ "ref_frame": 0,
+ "monitors": [
+  {
+   "name": "slab",
+   "quad": [
+    [
+     -150,
+     104
+    ],
+    [
+     200,
+     100
+    ],
+    [
+     218,
+     500
+    ],
+    [
+     -150,
+     500
+    ]
+   ],
+   "plate": "anim-02-typing-medCheck-ai-ghost-sideeye.mp4",
+   "plate_offset": 0,
+   "track": {
+    "mode": "klt",
+    "model": "translation",
+    "grow": 16,
+    "smooth": 3
+   },
+   "look": {
+    "lift": 0.28,
+    "soften": 2.2,
+    "glow": 0.15,
+    "grow": 2.0,
+    "tint": 0.35
+   }
+  }
+ ],
+ "source": {
+  "path": "/workspace/poc/jen_v4/shot_56/shot_56_clip_24fps_grain.mp4",
+  "size": 1184155,
+  "mtime": "2026-10-31 04:42:30",
+  "md5": "49931b7bcea9"
+ }
+}

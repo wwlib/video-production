@@ -1,0 +1,51 @@
+{
+ "shot": 6,
+ "notes": "Side-on, same framing as the intro shot 6 (new I2V from the same still); static. Head well left of the screen. anim-02 offset 64 (AI ghost text). | v4.1: occlusion = rembg u2net_human_seg person matte only (old luma/chroma keys removed).",
+ "ref_frame": 0,
+ "monitors": [
+  {
+   "name": "main",
+   "quad": [
+    [
+     396,
+     89
+    ],
+    [
+     811,
+     82
+    ],
+    [
+     804,
+     347
+    ],
+    [
+     390,
+     325
+    ]
+   ],
+   "plate": "anim-02-typing-medCheck-ai-ghost-sideeye.mp4",
+   "plate_offset": 64,
+   "track": {
+    "mode": "static"
+   },
+   "look": {
+    "lift": 0.22,
+    "soften": 0.45,
+    "glow": 0.18
+   },
+   "occlusion": {
+    "matte": "/workspace/poc/jen_v4/vscode/mattes/m06.mp4",
+    "matte_only": true,
+    "matte_thr": 0.35,
+    "matte_dilate": 5,
+    "feather": 1.0
+   }
+  }
+ ],
+ "source": {
+  "path": "/workspace/poc/jen_v4/shot_06/shot_06_fix1_clip_24fps_grain.mp4",
+  "size": 1497064,
+  "mtime": "2026-11-01 20:43:15",
+  "md5": "c022f06749d7"
+ }
+}

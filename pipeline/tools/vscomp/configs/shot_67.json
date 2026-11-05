@@ -1,0 +1,49 @@
+{
+ "shot": 67,
+ "notes": "Lip MCU 'c'est \u00e7a le code de vie'; slab monitor left.",
+ "ref_frame": 0,
+ "monitors": [
+  {
+   "name": "slab",
+   "quad": [
+    [
+     -60,
+     72
+    ],
+    [
+     124,
+     60
+    ],
+    [
+     178,
+     500
+    ],
+    [
+     -60,
+     500
+    ]
+   ],
+   "plate": "anim-04-terminal-tests-go-green.mp4",
+   "plate_offset": 0,
+   "track": {
+    "mode": "klt",
+    "model": "translation",
+    "grow": 16,
+    "smooth": 3
+   },
+   "look": {
+    "lift": 0.22,
+    "soften": 2.0,
+    "glow": 0.15,
+    "grow": 1.5,
+    "tint": 0.3
+   }
+  }
+ ],
+ "source": {
+  "path": "/workspace/poc/jen_v4/shot_67/shot_67_clip_24fps_grain.mp4",
+  "size": 1891882,
+  "mtime": "2026-10-31 04:42:35",
+  "md5": "5ae1c494c2fa"
+ }
+}

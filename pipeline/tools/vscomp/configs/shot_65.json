@@ -1,0 +1,130 @@
+{
+ "shot": 65,
+ "notes": "From behind, 3 monitors; head/ponytail in front of centre. | v4.1: occlusion = rembg u2net_human_seg person matte only (old luma/chroma keys removed).",
+ "ref_frame": 0,
+ "monitors": [
+  {
+   "name": "L",
+   "quad": [
+    [
+     188,
+     191
+    ],
+    [
+     338,
+     191
+    ],
+    [
+     338,
+     281
+    ],
+    [
+     188,
+     282
+    ]
+   ],
+   "plate": "screen-01-transcribe.png",
+   "plate_offset": 0,
+   "track": {
+    "mode": "static"
+   },
+   "look": {
+    "lift": 0.1,
+    "soften": 1.4,
+    "glow": 0.15,
+    "grow": 1.5
+   },
+   "occlusion": {
+    "matte": "/workspace/poc/jen_v4/vscode/mattes/m65.mp4",
+    "matte_only": true,
+    "matte_thr": 0.35,
+    "matte_dilate": 5,
+    "feather": 1.0
+   }
+  },
+  {
+   "name": "C",
+   "quad": [
+    [
+     343,
+     191
+    ],
+    [
+     498,
+     191
+    ],
+    [
+     498,
+     270
+    ],
+    [
+     343,
+     270
+    ]
+   ],
+   "plate": "anim-01-typing-noteBuilder-french-comment.mp4",
+   "plate_offset": 0,
+   "track": {
+    "mode": "static"
+   },
+   "look": {
+    "lift": 0.1,
+    "soften": 1.4,
+    "glow": 0.15,
+    "grow": 1.5
+   },
+   "occlusion": {
+    "matte": "/workspace/poc/jen_v4/vscode/mattes/m65.mp4",
+    "matte_only": true,
+    "matte_thr": 0.35,
+    "matte_dilate": 5,
+    "feather": 1.0
+   }
+  },
+  {
+   "name": "R",
+   "quad": [
+    [
+     506,
+     189
+    ],
+    [
+     646,
+     189
+    ],
+    [
+     646,
+     280
+    ],
+    [
+     506,
+     280
+    ]
+   ],
+   "plate": "screen-06-split-terminal-tests-pass.png",
+   "plate_offset": 0,
+   "track": {
+    "mode": "static"
+   },
+   "look": {
+    "lift": 0.1,
+    "soften": 1.4,
+    "glow": 0.15,
+    "grow": 1.5
+   },
+   "occlusion": {
+    "matte": "/workspace/poc/jen_v4/vscode/mattes/m65.mp4",
+    "matte_only": true,
+    "matte_thr": 0.35,
+    "matte_dilate": 5,
+    "feather": 1.0
+   }
+  }
+ ],
+ "source": {
+  "path": "/workspace/poc/jen_v4/shot_65/shot_65_clip_24fps_grain.mp4",
+  "size": 1655740,
+  "mtime": "2026-10-31 04:42:34",
+  "md5": "6c03da88d80b"
+ }
+}

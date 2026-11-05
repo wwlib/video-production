@@ -1,0 +1,52 @@
+{
+ "shot": 2,
+ "notes": "Typing CU, main monitor upper-left (top off-frame), camera static (<1 px). Edges measured by gradient.",
+ "ref_frame": 0,
+ "monitors": [
+  {
+   "name": "main",
+   "quad": [
+    [
+     -60,
+     -150
+    ],
+    [
+     250,
+     -150
+    ],
+    [
+     254,
+     152
+    ],
+    [
+     -60,
+     193
+    ]
+   ],
+   "plate": "anim-01-typing-noteBuilder-french-comment.mp4",
+   "plate_offset": 48,
+   "track": {
+    "mode": "static"
+   },
+   "look": {
+    "exposure": 1.0,
+    "lift": 0.22,
+    "soften": 0.5,
+    "glow": 0.16,
+    "grow": 1.5
+   },
+   "src_rect": [
+    274,
+    0,
+    1920,
+    1080
+   ]
+  }
+ ],
+ "source": {
+  "path": "/workspace/poc/jen_v4/shot_02/shot_02_clip_24fps_grain.mp4",
+  "size": 1572263,
+  "mtime": "2026-10-30 16:50:24",
+  "md5": "9188b26ad90c"
+ }
+}

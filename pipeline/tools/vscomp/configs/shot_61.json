@@ -1,0 +1,77 @@
+{
+ "shot": 61,
+ "notes": "Split screen; background monitors behind engineer (left half), only the unoccluded outer two.",
+ "ref_frame": 0,
+ "monitors": [
+  {
+   "name": "bgL",
+   "quad": [
+    [
+     -2,
+     128
+    ],
+    [
+     64,
+     128
+    ],
+    [
+     64,
+     256
+    ],
+    [
+     -2,
+     256
+    ]
+   ],
+   "plate": "screen-05-pipeline-test.png",
+   "plate_offset": 0,
+   "track": {
+    "mode": "static"
+   },
+   "look": {
+    "lift": 0.12,
+    "soften": 1.8,
+    "glow": 0.15,
+    "grow": 1.5
+   }
+  },
+  {
+   "name": "bgR",
+   "quad": [
+    [
+     320,
+     125
+    ],
+    [
+     414,
+     125
+    ],
+    [
+     414,
+     246
+    ],
+    [
+     320,
+     246
+    ]
+   ],
+   "plate": "screen-07-ai-ghost-text-sideeye.png",
+   "plate_offset": 0,
+   "track": {
+    "mode": "static"
+   },
+   "look": {
+    "lift": 0.12,
+    "soften": 1.8,
+    "glow": 0.15,
+    "grow": 1.5
+   }
+  }
+ ],
+ "source": {
+  "path": "/workspace/poc/jen_v4/shot_61/shot_61_clip_24fps_grain.mp4",
+  "size": 770674,
+  "mtime": "2026-10-31 04:42:32",
+  "md5": "f16617f9add0"
+ }
+}

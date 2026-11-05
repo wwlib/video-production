@@ -1,0 +1,45 @@
+{
+ "shot": 36,
+ "notes": "Cart screen CU: Qwen put her reflection over the UI; the whole screen gets the clinical UI plate (screens/_tools/make_clinical_ui.py). Camera locked off (bezel edges move <1 px).",
+ "ref_frame": 0,
+ "monitors": [
+  {
+   "name": "screen",
+   "quad": [
+    [
+     110,
+     26
+    ],
+    [
+     745,
+     26
+    ],
+    [
+     751,
+     457
+    ],
+    [
+     106,
+     457
+    ]
+   ],
+   "plate": "clinical-ui-chart-form.mp4",
+   "plate_offset": 0,
+   "track": {
+    "mode": "static"
+   },
+   "look": {
+    "lift": 0.3,
+    "soften": 0.6,
+    "glow": 0.1,
+    "grow": 1.5
+   }
+  }
+ ],
+ "source": {
+  "path": "/workspace/poc/jen_v4/shot_36/shot_36_clip_24fps_grain.mp4",
+  "size": 811278,
+  "mtime": "2026-10-31 00:05:38",
+  "md5": "207f585372df"
+ }
+}

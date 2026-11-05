@@ -1,0 +1,48 @@
+{
+ "shot": 13,
+ "notes": "Lip-sync MCU; background monitor left, camera drifts ~8 px: KLT translation.",
+ "ref_frame": 0,
+ "monitors": [
+  {
+   "name": "left",
+   "quad": [
+    [
+     -5,
+     163
+    ],
+    [
+     128,
+     166
+    ],
+    [
+     135,
+     400
+    ],
+    [
+     -5,
+     402
+    ]
+   ],
+   "plate": "screen-03-medCheck.png",
+   "plate_offset": 0,
+   "track": {
+    "mode": "klt",
+    "model": "translation",
+    "grow": 16,
+    "smooth": 3
+   },
+   "look": {
+    "lift": 0.22,
+    "soften": 1.4,
+    "glow": 0.15,
+    "grow": 1.5
+   }
+  }
+ ],
+ "source": {
+  "path": "/workspace/poc/jen_v4/shot_13/shot_13_clip_24fps_grain.mp4",
+  "size": 2227481,
+  "mtime": "2026-10-30 16:50:29",
+  "md5": "f75cae238e11"
+ }
+}

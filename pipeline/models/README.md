@@ -1,1 +1,1 @@
-# Weights live in $CDV_DATA/models (fetched by scripts/fetch_models.sh)
+# Weights live in $CDV_DATA/models (scripts/fetch_models.sh)
