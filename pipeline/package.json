@@ -1,0 +1,12 @@
+{
+  "name": "code-de-vie-pipeline",
+  "private": true,
+  "description": "Thin npm wrappers around the Code de Vie Python post pipeline (Team XRay)",
+  "scripts": {
+    "setup": "./setup.sh",
+    "test": "./run.sh test",
+    "section": "./run.sh section",
+    "final": "./run.sh v6",
+    "v6": "./run.sh v6"
+  }
+}

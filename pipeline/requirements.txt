@@ -1,0 +1,9 @@
+# Code de Vie post pipeline — Apple Silicon / Linux
+# Python 3.11+. Tested on Mac mini M4 with mediapipe 1.2 + OpenCV 5 + rembg 2.0.86.
+numpy>=2.0,<3
+opencv-contrib-python>=4.10
+opencv-python-headless>=4.10
+pillow>=10
+onnxruntime>=1.17
+rembg>=2.0.57
+mediapipe>=1.2.0
